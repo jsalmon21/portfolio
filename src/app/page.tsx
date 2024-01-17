@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Particles } from "@/components/Particles";
+import { KineticEnergy } from "@/components/KineticEnergy";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           className="absolute inset-0 -z-10 animate-fade-in"
           quantity={100}
         />
+        <KineticEnergy className="absolute inset-0 -z-10 animate-fade-in" />
         <h1 className="p-2 text-center z-10 text-4xl text-transparent bg-white cursor-default text-edge-outline animate-title font-display font-bold sm:text-5xl md:text-6xl whitespace-nowrap bg-clip-text">
           jason vincent
         </h1>
