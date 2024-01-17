@@ -16,13 +16,11 @@ export const KineticEnergy = ({ className = "" }: KineticEnergyProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);
+  const points = useRef<any[]>([]);
   const mousePosition = useMousePosition();
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
-
-  // new computed
-  const points = useRef<any[]>([]);
 
   useEffect(() => {
     if (canvasRef.current) {
@@ -35,6 +33,7 @@ export const KineticEnergy = ({ className = "" }: KineticEnergyProps) => {
     return () => {
       window.removeEventListener("resize", initCanvas);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

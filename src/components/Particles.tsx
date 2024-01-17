@@ -38,6 +38,7 @@ export const Particles = ({
     return () => {
       window.removeEventListener("resize", initCanvas);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

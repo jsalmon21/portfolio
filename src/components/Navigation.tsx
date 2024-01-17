@@ -2,11 +2,16 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "./atoms/Button";
 import { Menu, MenuContent, MenuTrigger } from "@/components/Menu";
 import { cn } from "@/lib/utils";
 
-const Navigation = () => {
+interface NavigationProps {
+  isHomepage?: boolean;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ isHomepage }) => {
   const [menuHover, setMenuHover] = useState<boolean>(false);
 
   const links = [
@@ -26,10 +31,20 @@ const Navigation = () => {
 
   return (
     <Menu>
-      <nav className="fixed top-0 left-0 right-0 text-right z-50 p-4">
+      <nav className="fixed flex justify-between top-0 left-0 right-0 text-right z-50 p-4">
+        {!isHomepage && (
+          <Button
+            asChild
+            className="opacity-70 hover:opacity-100 transition-opacity"
+          >
+            <Link href="/">
+              <ArrowLeft />
+            </Link>
+          </Button>
+        )}
         <MenuTrigger asChild>
           <Button
-            className="flex-col items-end h-10 opacity-70 hover:opacity-100 transition-opacity"
+            className="ml-auto flex-col items-end h-10 opacity-70 hover:opacity-100 transition-opacity"
             aria-label="Menu"
             tabIndex={0}
             onMouseEnter={() => setMenuHover(true)}
@@ -50,7 +65,7 @@ const Navigation = () => {
             {links.map((link) => {
               return (
                 <li key={JSON.stringify(link)} className="py-2">
-                  <Button asChild className="text-xl">
+                  <Button asChild variant="link" className="text-xl">
                     <Link href={link.href}>{link.name}</Link>
                   </Button>
                 </li>

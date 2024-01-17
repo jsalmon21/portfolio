@@ -9,7 +9,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Jason Vincent",
+  title: "Jason Vincent | Web Designer & Developer",
   description:
     "Colorado based web designer and developer focused on delivering beautiful, minimal, and user-friendly design with interactive experiences for all mediums.",
 };
